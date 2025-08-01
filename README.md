@@ -48,7 +48,18 @@ ODinW was first proposed in GLIP and refined and formalized in [ELEVATER](https:
 ## Installation and Setup
 
 ***Environment***
-This repo requires Pytorch>=1.9 and torchvision. We recommand using docker to setup the environment. You can use this pre-built docker image ``docker pull pengchuanzhang/maskrcnn:ubuntu18-py3.7-cuda10.2-pytorch1.9`` or this one ``docker pull pengchuanzhang/pytorch:ubuntu20.04_torch1.9-cuda11.3-nccl2.9.9`` depending on your GPU.
+This repo requires Pytorch>=1.9 and torchvision.
+
+### Conda
+If you are in a virtual environment with Pytorch and torchvision, you can follow the steps below to complete the installation:
+```
+pip install einops shapely timm yacs tensorboardX ftfy prettytable pymongo
+pip install ntlk inflect
+pip install -e . # If encounter the error of not finding `torch`, you can try to downgrade setuptool<6.0.0.
+``` 
+
+### Docker
+We recommand using docker to setup the environment. You can use this pre-built docker image ``docker pull pengchuanzhang/maskrcnn:ubuntu18-py3.7-cuda10.2-pytorch1.9`` or this one ``docker pull pengchuanzhang/pytorch:ubuntu20.04_torch1.9-cuda11.3-nccl2.9.9`` depending on your GPU.
 
 Then install the following packages:
 ```
