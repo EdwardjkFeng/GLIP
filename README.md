@@ -3,7 +3,11 @@
 <img src="docs/lead.png" width="800"> 
 
 
+## Modification
+- Fix compatibility issue with cuda 11.8 and torch>=2.0.0 according to [this suggestion](https://github.com/microsoft/GLIP/issues/164)!
+
 ## Updates
+
 06/16/2022: ODinW benchmark released! GLIP-T A&B released!
 
 06/13/2022: GLIPv2 is on Arxiv https://arxiv.org/abs/2206.05836!
