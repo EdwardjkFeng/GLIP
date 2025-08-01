@@ -1,6 +1,7 @@
 import cv2
 import torch
 import re
+import os
 import numpy as np
 from typing import List, Union
 import nltk
@@ -18,8 +19,9 @@ from maskrcnn_benchmark.modeling.roi_heads.mask_head.inference import Masker
 from maskrcnn_benchmark.utils import cv2_util
 
 engine = inflect.engine()
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
+if not os.path.exists("/root/nltk_data/"):
+    nltk.download('punkt')
+    nltk.download('averaged_perceptron_tagger')
 
 import timeit
 
@@ -315,7 +317,7 @@ class GLIPDemo(object):
 
         return image
 
-    def overlay_entity_names(self, image, predictions, names=None, text_size=2.0, text_pixel=2, text_offset = 10, text_offset_original = 4):
+    def overlay_entity_names(self, image, predictions, names=None, text_size=1.0, text_pixel=2, text_offset = 10, text_offset_original = 4):
         scores = predictions.get_field("scores").tolist()
         labels = predictions.get_field("labels").tolist()
         new_labels = []

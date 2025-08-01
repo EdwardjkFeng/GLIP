@@ -9,7 +9,7 @@ from collections import OrderedDict, defaultdict
 import numpy as np
 import pycocotools.mask as mask_util
 import torch
-import torch._six
+# import torch._six
 
 import maskrcnn_benchmark.utils.mdetr_dist  as dist
 
@@ -471,8 +471,8 @@ class LVISEval:
                 tps = np.logical_and(dt_m, np.logical_not(dt_ig))
                 fps = np.logical_and(np.logical_not(dt_m), np.logical_not(dt_ig))
 
-                tp_sum = np.cumsum(tps, axis=1).astype(dtype=np.float)
-                fp_sum = np.cumsum(fps, axis=1).astype(dtype=np.float)
+                tp_sum = np.cumsum(tps, axis=1).astype(dtype=np.float32)
+                fp_sum = np.cumsum(fps, axis=1).astype(dtype=np.float32)
 
                 dt_pointers[cat_idx][area_idx] = {
                     "dt_ids": dt_ids,
